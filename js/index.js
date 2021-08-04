@@ -8,6 +8,7 @@ let speed = 5;
 let lastPaintTime=0;
 let snakeArr = [{x:13,y:15}]
 let pause_option = true;
+let previous_key=""
 food={x:6,y:7}
 //game func
 function main(ctime)
@@ -115,43 +116,94 @@ function gameEngine()
 //main logic
 window.requestAnimationFrame(main)
 window.addEventListener('keydown',e=>{
-     inputDir = { x:0 ,y:1}
+     //inputDir = { x:0 ,y:1}
      //console.log(e);
      moveSound.play();
-     console.log("Hello"+e.key+"No");
-     if(e.key==="ArrowUp")
+     //console.log("Hello"+e.key+"No "+previous_key);
+     //console.log("Prev: "+previous_key+" now: "+e.key)
+     console.log("Size: ",snakeArr.length)
+     if(snakeArr.length===1)
      {
-        pause_option=true;
-        console.log("ArrowUp")
-        inputDir.x=0
-        inputDir.y=-1
+        if(e.key==="ArrowUp")
+        {
+           pause_option=true;
+           //console.log("ArrowUp")
+           inputDir.x=0
+           inputDir.y=-1
+           previous_key=e.key;
+        }
+        else if(e.key==="ArrowDown")
+        {
+           pause_option=true;
+           //console.log("ArrowDown")
+           inputDir.x=0
+           inputDir.y=1
+           previous_key=e.key;
+        }
+        else if(e.key==="ArrowLeft")
+        {
+           pause_option=true;
+           //console.log("ArrowLeft")
+           inputDir.x=-1
+           inputDir.y=0
+           previous_key=e.key;
+        }
+        else if(e.key==="ArrowRight")
+        {
+           pause_option=true;
+           //console.log("ArrowRight")
+           inputDir.x=1
+           inputDir.y=0
+           previous_key=e.key;
+        }
+        else if(e.key===" ")
+        {
+            //console.log("Hi this");
+            pause_option=!pause_option;
+        }
      }
-     else if(e.key==="ArrowDown")
+     else
      {
-        pause_option=true;
-        console.log("ArrowDown")
-        inputDir.x=0
-        inputDir.y=1
+        if(e.key==="ArrowUp" && previous_key!="ArrowDown")
+        {
+           pause_option=true;
+           //console.log("ArrowUp")
+           inputDir.x=0
+           inputDir.y=-1
+           previous_key=e.key;
+        }
+        else if(e.key==="ArrowDown" && previous_key!="ArrowUp")
+        {
+           pause_option=true;
+           //console.log("ArrowDown")
+           inputDir.x=0
+           inputDir.y=1
+           previous_key=e.key;
+        }
+        else if(e.key==="ArrowLeft" && previous_key!="ArrowRight")
+        {
+           pause_option=true;
+           //console.log("ArrowLeft")
+           inputDir.x=-1
+           inputDir.y=0
+           previous_key=e.key;
+        }
+        else if(e.key==="ArrowRight" && previous_key!="ArrowLeft")
+        {
+           pause_option=true;
+           //console.log("ArrowRight")
+           inputDir.x=1
+           inputDir.y=0
+           previous_key=e.key;
+        }
+        else if(e.key===" ")
+        {
+            //console.log("Hi this");
+            pause_option=!pause_option;
+        }
      }
-     else if(e.key==="ArrowLeft")
-     {
-        pause_option=true;
-        console.log("ArrowLeft")
-        inputDir.x=-1
-        inputDir.y=0
-     }
-     else if(e.key==="ArrowRight")
-     {
-        pause_option=true;
-        console.log("ArrowRight")
-        inputDir.x=1
-        inputDir.y=0
-     }
-     else if(e.key===" ")
-     {
-         console.log("Hi this");
-         pause_option=!pause_option;
-     }
+     
+
      /*
      switch (e.key) {
          case 'ArrowUp':
