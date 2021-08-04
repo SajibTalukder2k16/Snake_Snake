@@ -28,6 +28,35 @@
     font-size: 200%;
     font-weight: bold;
 }
+#instructionBox
+{
+    position:absolute;
+    top:15%;
+    left: 1%;
+    font-size: 150%;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.5;
+    padding: 1%;
+    border-radius: 10%;
+    border-style:dotted;
+    border-color: blue;
+    
+}
+#spaceBox
+{
+    position:absolute;
+    top:40%;
+    left: 1.5%;
+    font-size: 120%;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.5;
+    padding: 1%;
+    border-radius: 10%;
+    border-style:dotted;
+    border-color: blue;
+}
 .head{
     background: linear-gradient(red,yellow);
     border-style: solid;
