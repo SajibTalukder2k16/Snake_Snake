@@ -35,7 +35,7 @@ function isCollide() {
     }
     //go outside
     //console.log(sArr[0].x,sArr[0].y);
-    if(snakeArr[0].x<=0 || snakeArr[0].x>=18 || snakeArr[0].y<=0 ||snakeArr[0].y>=18)
+    if(snakeArr[0].x<=1 || snakeArr[0].x>=18 || snakeArr[0].y<=1 ||snakeArr[0].y>=18)
     {
         //pause_option=false;
         gameOverSound.play();
